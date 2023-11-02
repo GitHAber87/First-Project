@@ -1,0 +1,561 @@
+/* Устанавливаем box-sizing для всех элементов на странице и их псевдоэлементов */
+* {
+	box-sizing: border-box;
+}
+
+/* То же, что и выше, но для псевдоэлементов ::before и ::after */
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Объявление шрифтов семейства Poppins с разными начертаниями */
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins-Regular.woff') format('woff');
+	font-display: swap;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* Повторяем предыдущий блок для разных начертаний Poppins */
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins-Medium.woff') format('woff');
+	font-display: swap;
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins-SemiBold.woff') format('woff');
+	font-display: swap;
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins-Bold.woff') format('woff');
+	font-display: swap;
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Установка пользовательской переменной для шрифта */
+:root {
+	--font-family: 'Poppins', sans-serif;
+}
+
+/* Применяем шрифт для всего тела документа */
+body {
+	font-family: var(--font-family);
+	font-weight: 400;
+}
+
+/* Убираем автоматическое масштабирование изображений */
+img {
+	max-width: 100%;
+}
+
+/* Стили для списка с нулевым маркером и кнопок */
+.list-reset {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.btn-reset {
+	padding: 0;
+	border: none;
+	font-family: var(--font-family);
+	background-color: transparent;
+	cursor: pointer;
+}
+
+/* Определение стилей для контейнера */
+.container {
+	max-width: 1140px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+/* Стили для обычных ссылок */
+.link {
+	display: inline-flex;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1;
+	text-decoration: none;
+	color: #d4d6d4;
+	transition: color 0.3s ease-in-out;
+}
+
+/* Стили для иконки внутри ссылки */
+.link svg {
+	width: 12px;
+	height: 12px;
+	fill: currentColor;
+	transform: translateY(1px);
+}
+
+/* Стили для текста внутри ссылки */
+.link span {
+	text-indent: 10px;
+	border-bottom: 1px solid currentColor;
+}
+
+/* Стили для ссылки при наведении курсора */
+.link:hover {
+	color: #FFD723;
+}
+
+/* Заголовок сайта с большими стилями */
+.site-title {
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 46px;
+	color: #4D533C;
+}
+
+/* Стили для шапки сайта */
+.header {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 24px 0;
+	width: 100%;
+}
+
+/* Стили для контейнера внутри шапки */
+.header-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Стили для кнопки-бургера */
+.burger {
+	--offset-horizontal: 11px;
+	--offset-vertical: 14px;
+	position: relative;
+	border-radius: 100%;
+	padding: var(--offset-vertical) var(--offset);
+	width: 40px;
+	height: 40px;
+	background-color: #f5f6f7;
+}
+
+/* Стили для линий бургера */
+.burger-line {
+	position: absolute;
+	left: 50%;
+	top: var(--offset-vertical);
+	display: inline-block;
+	width: calc(100% - (var(--offset-horizontal) * 2));
+	height: 2px;
+	background-color: #000;
+	transform: translateX(-50%);
+}
+
+/* Вторая линия бургера */
+.burger-line:nth-child(2) {
+	top: calc(var(--offset-vertical) + 6px);
+}
+
+/* Третья линия бургера */
+.burger-line:nth-child(3) {
+	top: calc(var(--offset-vertical) + 12px);
+}
+
+/* Стили для секции "Hero" */
+.hero {
+	padding-top: 189px;
+	padding-bottom: 100px;
+	min-height: 811px;
+	background-image: url("../img/hero-bg.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* Стили для контейнера внутри секции "Hero" */
+.hero-content {
+	max-width: 616px;
+	color: #fff;
+}
+
+/* Подзаголовок секции "Hero" */
+.hero-subtitle {
+	display: inline-block;
+	margin-bottom: 22px;
+	font-size: 14px;
+	line-height: 21px;
+}
+
+/* Заголовок секции "Hero" */
+.hero-title {
+	margin: 0;
+	margin-bottom: 24px;
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 74px;
+}
+
+/* Описание секции "Hero" */
+.hero-descr {
+	margin: 0;
+	margin-bottom: 45px;
+	font-size: 16px;
+	line-height: 26px;
+}
+
+/* Стили для ссылки в секции "Hero" */
+.hero-link {
+	color: #FFD723;
+}
+
+/* Стили для секции "Services" */
+.services {
+	margin-bottom: -180px;
+	padding-top: 150px;
+	padding-bottom: 150px;
+}
+
+/* Заголовок секции "Services" */
+.services-title {
+	margin: 0;
+	margin-bottom: 60px;
+	max-width: 606px;
+}
+
+/* Список услуг в секции "Services" */
+.services-list {
+	display: grid;
+	gap: 30px;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* Подзаголовок услуги */
+.services-subtitle {
+	margin: 0;
+	margin-bottom: 20px;
+	max-width: 183px;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 34px;
+	text-transform: uppercase;
+	color: #4D533C;
+}
+
+/* Описание услуги */
+.services-descr {
+	margin: 0;
+	margin-bottom: 56px;
+	max-width: 194px;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 26px;
+	color: rgba(33, 56, 66, 0.6);
+}
+
+/* Стили для блока с услугой */
+.services-item {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+/* Стили для ссылки внутри услуги */
+.services-link {
+	margin-bottom: 0;
+	margin-top: auto;
+}
+
+/* Стили для секции "Get Started" */
+.get-started {
+	position: relative;
+	top: 180px;
+	padding: 70px 0;
+	width: 88%;
+	box-shadow: 50px 130px 100px rgba(0, 0, 0, 0.145947);
+	background-color: #fafafa;
+}
+
+/* Заголовок секции "Get Started" */
+.get-started-title {
+	margin: 0;
+	margin-bottom: 50px;
+	max-width: 822px;
+	font-weight: 700;
+	font-size: 60px;
+	line-height: 74px;
+	color: #4D533C;
+}
+
+/* Стили для ссылки в секции "Get Started" */
+.get-started-link {
+	text-transform: uppercase;
+}
+
+/* Стили для футера сайта */
+.footer {
+	padding-top: 300px;
+	color: #fff;
+	background-image: url("../img/footer-bg.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/* Верхняя часть футера с контактами */
+.footer-top {
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 52px;
+	border-bottom: 1px solid #5D6544;
+}
+
+/* Элемент контактов в футере, кроме последнего */
+.footer-contacts-item:not(:last-child) {
+	margin-right: 128px;
+}
+
+/* Стили для текста "Phone" и "Address" в контактах */
+.footer-contacts-text {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 16px;
+	line-height: 40px;
+	color: #B6C197;
+}
+
+/* Стили для контактных данных в футере */
+.footer-contacts-value {
+	display: inline-block;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 40px;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Средняя часть футера с разделами */
+.footer-middle {
+	--grid-gap: 70px;
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: repeat(4, 1fr);
+	padding: 60px 0;
+	border-bottom: 1px solid #5D6544;
+}
+
+/* Последняя колонка в средней части футера */
+.footer-column:last-child {
+	position: relative;
+}
+
+/* Вертикальная черта в средней части футера */
+.footer-column:last-child::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: calc(-1 * (var(--grid-gap)));
+	width: 1px;
+	height: 100%;
+	background-color: #5D6544;
+}
+
+/* Заголовок раздела в футере */
+.footer-title {
+	margin: 0;
+	margin-bottom: 21px;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 38px;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+/* Стили для обычных ссылок в футере */
+.footer-link {
+	display: inline-block;
+	font-size: 16px;
+	line-height: 40px;
+	text-decoration: none;
+	color: #B6C197;
+}
+
+/* Текстовый блок в футере */
+.footer-text {
+	margin: 0;
+	margin-bottom: 23px;
+	font-size: 16px;
+	line-height: 26px;
+	color: #B6C197;
+}
+
+/* Ссылка на почту в футере */
+.footer-mail {
+	display: inline-block;
+	margin-bottom: 24px;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 38px;
+	text-decoration: none;
+	color: #fff;
+}
+
+/* Блок социальных иконок в футере */
+.social {
+	display: flex;
+	align-items: center;
+}
+
+/* Каждая социальная иконка, кроме последней */
+.social-item:not(:last-child) {
+	margin-right: 11px;
+}
+
+/* Стили для социальной иконки */
+.social-link {
+	display: block;
+	border-radius: 100%;
+	width: 33px;
+	height: 33px;
+	background-color: #FFD723;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 18px auto;
+	opacity: 0.4;
+	transition: opacity 0.3s ease-in-out;
+}
+
+/* Стили для социальной иконки при наведении курсора */
+.social-link:hover {
+	opacity: 1;
+}
+
+/* Стили для иконки Facebook */
+.social-link-fb {
+	background-image: url("../img/facebook.svg");
+}
+
+/* Стили для иконки Twitter */
+.social-link-tw {
+	background-image: url("../img/twitter.svg");
+}
+
+/* Стили для иконки Google Plus */
+.social-link-g {
+	background-image: url("../img/google-plus.svg");
+}
+
+/* Стили для иконки LinkedIn */
+.social-link-in {
+	background-image: url("../img/linkedin.svg");
+}
+
+/* Текстовый блок с копирайтом в футере */
+.copyright {
+	font-size: 14px;
+	line-height: 21px;
+	color: #B5C096;
+}
+
+/* Нижняя часть футера с логотипом и копирайтом */
+.footer-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px 0;
+}
+
+/* Стили для секции "Get Started" с адаптивностью для ширины до 1140px */
+.get-started {
+	padding-left: calc((100% - 1110px) / 2);
+	padding-right: 15px;
+}
+
+/* Медиа-запрос для устройств с шириной до 1140px */
+@media (max-width: 1140px) {
+	.get-started {
+			padding-left: 15px;
+	}
+}
+
+/* Медиа-запрос для устройств с шириной до 992px */
+@media (max-width: 992px) {
+	.services-list {
+			gap: 50px;
+			grid-template-columns: repeat(2, 1fr);
+	}
+
+	.services-subtitle {
+			max-width: none;
+	}
+
+	.services-descr {
+			max-width: none;
+	}
+
+	.footer-middle {
+			grid-template-columns: repeat(2, 1fr);
+	}
+
+	.footer-column:last-child::before {
+			display: none;
+	}
+}
+
+/* Медиа-запрос для устройств с шириной до 768px */
+@media (max-width: 768px) {
+	.get-started-title {
+			font-size: 42px;
+			line-height: 54px;
+	}
+}
+
+/* Медиа-запрос для устройств с шириной до 576px */
+@media (max-width: 576px) {
+	.footer-middle {
+			--grid-gap: 40px;
+			grid-template-columns: repeat(1, 1fr);
+	}
+
+	.hero-title {
+			font-size: 50px;
+			line-height: 65px;
+	}
+
+	.services {
+			padding-top: 50px;
+			padding-bottom: 50px;
+	}
+
+	.footer-bottom {
+			flex-direction: column;
+	}
+}
+
+/* Медиа-запрос для устройств с шириной до 375px */
+@media (max-width: 375px) {
+	.footer-mail {
+			font-size: 20px;
+	}
+
+	.logo {
+			width: 65%;
+	}
+
+	.hero-title {
+			font-size: 45px;
+			line-height: 60px;
+	}
+
+	.services-list {
+			grid-template-columns: repeat(1, 1fr);
+	}
+}
